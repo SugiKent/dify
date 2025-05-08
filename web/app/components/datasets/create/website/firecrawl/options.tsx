@@ -56,6 +56,15 @@ const Options: FC<Props> = ({
           tooltip={t(`${I18N_PREFIX}.maxDepthTooltip`)!}
         />
       </div>
+      <Field
+        className='w-full'
+        label={t(`${I18N_PREFIX}.waitFor`)}
+        value={payload.waitFor || ''}
+        onChange={handleChange('waitFor')}
+        isNumber
+        placeholder='5000'
+        tooltip={t(`${I18N_PREFIX}.waitForTooltip`)!}
+      />
 
       <div className='flex justify-between space-x-4'>
         <Field

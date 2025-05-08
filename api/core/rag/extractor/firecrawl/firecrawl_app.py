@@ -41,6 +41,9 @@ class FirecrawlApp:
         headers = self._prepare_headers()
         json_data = {"url": url}
         if params:
+            if 'waitFor' in params:
+                json_data['scrapeOptions'] = {'waitFor': params['waitFor']}
+                del params['waitFor']
             json_data.update(params)
         response = self._post_request(f"{self.base_url}/v1/crawl", json_data, headers)
         if response.status_code == 200:
